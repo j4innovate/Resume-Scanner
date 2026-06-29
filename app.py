@@ -2,8 +2,19 @@ from flask import Flask, render_template, send_from_directory
 from flask_cors import CORS
 import sys
 import os
+import nltk
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# Ensure NLTK packages are downloaded
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 
 app = Flask(__name__)
 CORS(app) # Allow cross-origin requests from frontend
