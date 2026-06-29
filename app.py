@@ -1,10 +1,12 @@
-from flask import Flask,render_template,send_from_directory
-
-# ImportError: attempted relative import with no known parent package
+from flask import Flask, render_template, send_from_directory
+from flask_cors import CORS
 import sys
-sys.path.append("..") # Adds higher directory to python modules path.
+import os
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 app = Flask(__name__)
+CORS(app) # Allow cross-origin requests from frontend
 
 # Register blueprints
 from routes.upload_resume import upload_resume_bp

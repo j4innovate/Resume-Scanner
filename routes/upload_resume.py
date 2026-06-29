@@ -1,22 +1,32 @@
-from flask import Blueprint, jsonify , render_template , request, send_from_directory
-from pyresparser import ResumeParser
-upload_resume_bp = Blueprint('upload_resume', __name__)
-import nltk
+from flask import Blueprint, jsonify, request
 import os
-nltk.download('stopwords')
+import sys
 
-@upload_resume_bp.route("/upload-resume", methods=["GET","POST"])
+from utils.resume_parser import parse_resume
+
+upload_resume_bp = Blueprint('upload_resume', __name__)
+
+@upload_resume_bp.route("/upload-resume", methods=["POST"])
 def upload_resume():
-    # Code to handle resume upload from user end    
-    if(request.method == 'POST'):
-        file = request.files['file']
-        path = os.path.join(os.getcwd(),f"uploads/{file.filename}")
-        file.save(path)
-        data = ResumeParser(path).get_extracted_data()
-        return jsonify({"filename":data})
-    # else:
-    #     return send_from_directory('templates', 'upload.html')
-    # else:
-    #     return render_template('upload.html')
-    # replace the output with appriopriate data
+    if 'file' not in request.files:
+        return jsonify({"success": False, "error": "No file uploaded"}), 400
+        
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"success": False, "error": "No selected file"}), 400
+        
+    # Ensure uploads directory exists
+    uploads_dir = os.path.join(os.getcwd(), "uploads")
+    os.makedirs(uploads_dir, exist_ok=True)
+    
+    path = os.path.join(uploads_dir, file.filename)
+    file.save(path)
+    
+    # Run our custom parsing engine
+    report = parse_resume(path)
+    
+    if not report:
+        return jsonify({"success": False, "error": "Unable to extract text from the file"}), 400
+        
+    return jsonify(report)
     

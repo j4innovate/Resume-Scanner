@@ -15,7 +15,7 @@ def register_routes(app):
 
     app.register_blueprint(recommend_skills_bp)
     app.register_blueprint(ats_recommendations_bp)
-    app.register_blurprint(overall_score_bp)
+    app.register_blueprint(overall_score_bp)
 
 
 # import & regsiter more routes like this

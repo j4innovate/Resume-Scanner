@@ -1,7 +1,4 @@
-from flask import Flask,request,jsonify,Blueprint
-import numpy as np
-import nltk
-nltk.download('stopwords')
+from flask import request, jsonify, Blueprint
 import io
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
