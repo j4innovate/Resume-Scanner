@@ -1,0 +1,29 @@
+---
+import Group1 from "/ATSResumeTest/Group 1.svg";
+---
+
+<div class="bg-[#0C1030] py-16 px-6 md:px-16 max-w-6xl mx-auto w-full">
+    <div class="border border-white/10 rounded-3xl p-8 md:p-12 bg-gradient-to-br from-[#242845]/90 to-[#121635]/95 overflow-hidden relative shadow-2xl shadow-indigo-950/30 backdrop-blur-md">
+        {/* Glow orb inside card */}
+        <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-[#6938EF]/20 rounded-full blur-[80px] pointer-events-none"></div>
+        
+        <div class="p-0 md:w-[60%] z-10 relative">
+            <h2 class="text-white text-3xl md:text-4xl font-rubik font-bold leading-tight bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent">
+                Find out if your resume passes the ATS test
+            </h2>
+            <p class="text-[#D0D5DD] py-4 text-base md:text-lg leading-relaxed font-light">
+                <strong>Tip:</strong> J4.Innovate is built with all applicant tracking systems (ATS) in mind. If your resume scans correctly on our platform, you can be confident it will also be processed successfully by corporate recruiters.
+            </p>
+            <a href="/scan"
+                class="inline-block bg-[#6938EF] hover:bg-[#5629D4] text-white py-3 px-8 rounded-xl font-bold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(105,56,239,0.3)] active:scale-95 text-center mt-2"
+            >
+                Get Your Free ATS Resume Scan
+            </a>
+            <img
+                src={Group1}
+                class="absolute w-[45%] h-auto right-[-24rem] bottom-[-8rem] hidden md:block opacity-80"
+                alt=""
+            />
+        </div>
+    </div>
+</div>

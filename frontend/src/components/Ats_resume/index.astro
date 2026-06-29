@@ -1,0 +1,78 @@
+---
+const para = [
+    "You want to make sure you stick to text and a standard font with minimal use of special characters. Notice the clean single-column design and how fancy formatting like tables, diagrams and graphs have been stripped out. ATS resume scanners either ignore these or read them incorrectly.",
+    `This resume aptly uses standard section titles, such as "Experience" and "Education". Resume scanners specifically look out for these core sections and you want to make sure they're easy to find.`,
+    "Bonus tip: Use reverse chronological order for your dates. Many applicant tracking systems try to find your most recent work experience and assumes your resume is in reverse chronological order (i.e. most recent first)."
+]
+---
+<section class="py-24 px-6 md:px-16 bg-[#0C1030] flex flex-col lg:flex-row items-center justify-between gap-12 max-w-6xl mx-auto">
+  <div class="text-white flex flex-col lg:w-3/5">
+    <h2 class="font-rubik font-bold text-4xl md:text-5xl bg-gradient-to-r from-white via-slate-200 to-indigo-200 bg-clip-text text-transparent pb-6 leading-tight">
+      ATS Resume Template
+    </h2>
+    <div class="lg:order-first lg:hidden w-full max-w-sm mx-auto mb-8 bg-white/5 border border-white/5 p-3 rounded-2xl shadow-2xl hover:scale-[1.02] transition-all duration-300">
+      <img src="/Ats_resume/Frame.svg" width="410" height="546" class="rounded-xl w-full" alt="ATS Resume Template Preview" />
+      <a href="https://drive.google.com/file/d/1B8GQfwNDrbeSp5FnU8lrQaWFD7efUL3t/view" target="_blank"
+        class="block w-full text-center py-3.5 px-6 rounded-xl bg-[#1D2939] hover:bg-[#253244] text-white mt-4 text-base font-bold transition-all duration-300 shadow-md border border-white/10"
+      >
+        Download the Template
+      </a>
+    </div>
+    <div class="flex flex-col mt-2">
+      <p class="pb-6 text-base md:text-lg text-gray-400 font-light">
+        Here are the guidelines we outlined above in practice:
+      </p>
+      <div class="space-y-6">
+        {para.map((el) => (
+          <div class="flex items-start gap-4">
+            <div class="mt-1.5 flex-shrink-0">
+              <svg
+                width="16"
+                height="13"
+                viewBox="0 0 18 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.25 0.5H7.75L12.75 7.5L7.75 14.5H12.25L17.25 7.5L12.25 0.5Z"
+                  fill="#6938EF"
+                />
+                <path
+                  d="M5.25 0.5H0.75L5.75 7.5L0.75 14.5H5.25L10.25 7.5L5.25 0.5Z"
+                  fill="#6938EF"
+                />
+              </svg>
+            </div>
+            <p class="text-[#D0D5DD] text-sm md:text-base leading-relaxed">{el}</p>
+          </div>
+        ))}
+      </div>
+      <a href="/scan" class="bg-[#6938EF] hover:bg-[#5629D4] w-fit mt-10 rounded-xl py-4 px-8 text-center text-white font-bold transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(105,56,239,0.3)] active:scale-95">
+        Get an ATS Resume Test
+      </a>
+    </div>
+  </div>
+
+  <div class="lg:order-first hidden lg:block lg:w-2/5 max-w-sm bg-white/5 border border-white/5 p-4 rounded-2xl shadow-2xl hover:scale-[1.02] transition-all duration-300">
+    <img src="/Ats_resume/Frame.svg" width="410" height="546" class="rounded-xl w-full" alt="ATS Resume Template Preview" />
+    <a href="https://drive.google.com/file/d/1B8GQfwNDrbeSp5FnU8lrQaWFD7efUL3t/view" target="_blank"
+      class="block w-full text-center py-3.5 px-6 rounded-xl bg-white/5 hover:bg-white/10 text-white mt-4 text-base font-bold transition-all duration-300 shadow-md border border-white/10"
+    >
+      Download the Template
+    </a>
+  </div>
+</section>
+  
+
+<script>
+
+  function handleClick1() {
+    console.log("Downloaded")
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const button = document.getElementById("btn");
+    
+    button && button.addEventListener("click", handleClick1);
+  });
+</script>

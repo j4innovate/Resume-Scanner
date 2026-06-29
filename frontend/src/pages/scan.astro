@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ScreenerClient from '../components/ScreenerClient.jsx';
+---
+
+<Layout title="ATS Resume Scan" description="Scan your resume for ATS compliance and get actionable improvements.">
+  <main class="min-h-screen bg-[#0C1030] py-8">
+    <ScreenerClient client:load />
+  </main>
+</Layout>
