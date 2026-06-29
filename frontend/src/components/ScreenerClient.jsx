@@ -63,7 +63,8 @@ const ScreenerClient = () => {
       // Small timeout to allow the loader steps to animate smoothly
       await new Promise(resolve => setTimeout(resolve, 3500));
       
-      const response = await fetch('http://localhost:5000/upload-resume', {
+      const apiBaseUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiBaseUrl}/upload-resume`, {
         method: 'POST',
         body: formData,
       });
